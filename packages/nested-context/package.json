@@ -1,0 +1,8 @@
+{
+  "name": "nested-context",
+  "version": "1.0.0",
+  "dependencies": {
+    "context-high": "file:../../fixtures/context-high",
+    "context-low": "file:../../fixtures/context-low"
+  }
+}

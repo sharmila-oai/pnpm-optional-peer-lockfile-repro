@@ -30,3 +30,20 @@ To run the repro from a fresh checkout:
 ```sh
 ./reproduce.sh
 ```
+
+## Nested context reproduction
+
+`packages/nested-context` depends on two local fixtures. Its committed
+lockfile captures `vitest@3.2.4` with `jsdom@26.1.0` beneath one fixture and
+with `jsdom@27.4.0` beneath the other. The fixtures no longer declare their
+direct seeding `jsdom` dependencies.
+
+With pnpm 11.4.0, a writable lockfile-only install selects a single optional
+peer version for both nested paths and discards one compatible prior context:
+
+```sh
+./reproduce-nested-context.sh
+```
+
+The relevant result is that both local fixtures resolve Vitest against
+`jsdom@26.1.0`, even though one was previously locked with `jsdom@27.4.0`.
