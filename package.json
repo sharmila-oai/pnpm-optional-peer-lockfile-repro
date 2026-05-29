@@ -1,0 +1,5 @@
+{
+  "name": "pnpm-optional-peer-lockfile-repro",
+  "private": true,
+  "packageManager": "pnpm@11.4.0"
+}
